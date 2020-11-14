@@ -34,12 +34,17 @@ public class LoginTest {
         Thread.sleep(1000);
         String user = mainPage.getUserName();
         Assert.assertEquals("Дмитрий", user);
+        userLogout();
+    }
+
+    public static void userLogout() throws InterruptedException {
+        mainPage.clickToMainPage();
+        mainPage.userLogout();
+        Thread.sleep(10000);
     }
 
     @AfterClass
-    public static void userLogout() throws InterruptedException {
-        mainPage.userLogout();
-        Thread.sleep(10000);
+    public static void quit() {
         driver.quit();
     }
 }

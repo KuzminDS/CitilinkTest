@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c36b2d24-28b6-425c-abfb-660d0506a64c" name="Default Changelist" comment="" />
+    <list default="true" id="c36b2d24-28b6-425c-abfb-660d0506a64c" name="Default Changelist" comment="Added allure">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FirstTest/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FirstTest/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SecondTest/CityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SecondTest/CityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ThirdTest/ToothbrushTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ThirdTest/ToothbrushTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +25,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -25,18 +36,20 @@
     </option>
   </component>
   <component name="ProjectId" id="1jvEQFTrAYDcu4qtMkRVEtY26t3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="JUnit.ToothbrushTest">
+  <component name="RunManager" selected="JUnit.CityTest.changeCityTest">
     <configuration name="CityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CitilinkTest" />
       <extension name="coverage">
@@ -48,6 +61,22 @@
       <option name="PACKAGE_NAME" value="SecondTest" />
       <option name="MAIN_CLASS_NAME" value="SecondTest.CityTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CityTest.changeCityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CitilinkTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SecondTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SecondTest" />
+      <option name="MAIN_CLASS_NAME" value="SecondTest.CityTest" />
+      <option name="METHOD_NAME" value="changeCityTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -87,8 +116,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ToothbrushTest" />
+        <item itemvalue="JUnit.CityTest.changeCityTest" />
         <item itemvalue="JUnit.CityTest" />
+        <item itemvalue="JUnit.ToothbrushTest" />
         <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
@@ -104,6 +134,10 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added allure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added allure" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1010" y="0" key="#Project_Structure" timestamp="1604751668881">
       <screen x="0" y="0" width="2048" height="824" />
@@ -117,22 +151,30 @@
       <screen x="0" y="0" width="2048" height="824" />
     </state>
     <state x="1246" y="335" key="Github.CreateGistDialog/0.0.2048.824@0.0.2048.824" timestamp="1604911725111" />
-    <state width="1208" height="213" key="GridCell.Tab.0.bottom" timestamp="1604916541994">
+    <state x="1413" y="310" key="Github.ShareDialog" timestamp="1604918029456">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
-    <state width="1208" height="213" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1604916541994" />
-    <state width="1208" height="213" key="GridCell.Tab.0.center" timestamp="1604916541994">
+    <state x="1413" y="310" key="Github.ShareDialog/0.0.2048.824@0.0.2048.824" timestamp="1604918029456" />
+    <state x="1308" y="110" key="Github.UntrackedFilesDialog" timestamp="1604918059035">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
-    <state width="1208" height="213" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1604916541994" />
-    <state width="1208" height="213" key="GridCell.Tab.0.left" timestamp="1604916541994">
+    <state x="1308" y="110" key="Github.UntrackedFilesDialog/0.0.2048.824@0.0.2048.824" timestamp="1604918059035" />
+    <state width="982" height="265" key="GridCell.Tab.0.bottom" timestamp="1605356161361">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
-    <state width="1208" height="213" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1604916541994" />
-    <state width="1208" height="213" key="GridCell.Tab.0.right" timestamp="1604916541994">
+    <state width="982" height="265" key="GridCell.Tab.0.bottom/0.0.2048.824@0.0.2048.824" timestamp="1605356161361" />
+    <state width="982" height="265" key="GridCell.Tab.0.center" timestamp="1605356161361">
       <screen x="0" y="0" width="2048" height="824" />
     </state>
-    <state width="1208" height="213" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1604916541994" />
+    <state width="982" height="265" key="GridCell.Tab.0.center/0.0.2048.824@0.0.2048.824" timestamp="1605356161361" />
+    <state width="982" height="265" key="GridCell.Tab.0.left" timestamp="1605356161361">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="982" height="265" key="GridCell.Tab.0.left/0.0.2048.824@0.0.2048.824" timestamp="1605356161361" />
+    <state width="982" height="265" key="GridCell.Tab.0.right" timestamp="1605356161361">
+      <screen x="0" y="0" width="2048" height="824" />
+    </state>
+    <state width="982" height="265" key="GridCell.Tab.0.right/0.0.2048.824@0.0.2048.824" timestamp="1605356161361" />
     <state x="1045" y="57" key="SettingsEditor" timestamp="1604751783828">
       <screen x="0" y="0" width="2048" height="824" />
     </state>

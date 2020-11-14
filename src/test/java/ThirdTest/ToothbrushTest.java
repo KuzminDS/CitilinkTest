@@ -33,7 +33,7 @@ public class ToothbrushTest {
     }
 
     @Test
-    public void loginTest() throws InterruptedException {
+    public void toothbrushTest() throws InterruptedException {
         mainPage.showForm();
         mainPage.inputLogin(("dima251200@yandex.ru"));
         mainPage.inputPassword("dimas123");
@@ -52,7 +52,7 @@ public class ToothbrushTest {
         Thread.sleep(1000);
         cartPage.clickOnCheckout();
         cartPage.selectDelivery();
-        Integer actualFullPrice = cartPage.getProductPrice() + cartPage.getDeliveryPrice();
+        int actualFullPrice = cartPage.getProductPrice() + cartPage.getDeliveryPrice();
         Assert.assertEquals(cartPage.getFullPrice(), actualFullPrice);
         catalogPage.clickOnCart();
         cartPage.setProductCount(2);
@@ -62,15 +62,19 @@ public class ToothbrushTest {
         Assert.assertTrue(cartPage.getFullPrice() > 2999);
         actualFullPrice = cartPage.getProductPrice() + cartPage.getDeliveryPrice();
         Assert.assertEquals(cartPage.getFullPrice(), actualFullPrice);
+        userLogout();
     }
 
-    @AfterClass
     public static void userLogout() throws InterruptedException {
         catalogPage.clickOnCart();
         cartPage.removeAllProducts();
         mainPage.clickToMainPage();
         mainPage.userLogout();
         Thread.sleep(10000);
+    }
+
+    @AfterClass
+    public static void quit() {
         driver.quit();
     }
 }

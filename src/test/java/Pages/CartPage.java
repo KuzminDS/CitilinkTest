@@ -31,7 +31,7 @@ public class CartPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"delivery_save\"]"))).click();
     }
 
-    public Integer getFullPrice() {
+    public int getFullPrice() {
         String price = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("js--order-amount__amount-num"))).getText();
         return Integer.parseInt(price);
