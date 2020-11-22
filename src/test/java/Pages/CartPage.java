@@ -37,24 +37,25 @@ public class CartPage {
         return Integer.parseInt(price);
     }
 
-    public Integer getProductPrice() {
+    public int getProductPrice() {
         String price = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("js--order-amount-without-discount__amount-num"))).getText();
         return Integer.parseInt(price);
     }
 
-    public Integer getDeliveryPrice() {
+    public int getDeliveryPrice() {
         WebElement deliveryPriceBlock = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tr[./td[contains(text(), \"Доставка\")]]")));
         String price = deliveryPriceBlock.findElement(By.className("num")).getText();
         return Integer.parseInt(price);
     }
 
-    public void setProductCount(Integer count) {
+    public void setProductCount(Integer count) throws InterruptedException {
         WebElement productCountBlock = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("product_amount_control")));
         productCountBlock.sendKeys("\b\b\b\b\b\b");
         productCountBlock.sendKeys(count.toString());
+        Thread.sleep(2000);
     }
 
     public void removeAllProducts() {

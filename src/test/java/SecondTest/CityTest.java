@@ -2,6 +2,8 @@ package SecondTest;
 
 import Pages.ProfilePage;
 import Pages.MainPage;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -20,22 +22,17 @@ public class CityTest {
     public static MainPage mainPage;
     public static ProfilePage profilePage;
     public static WebDriver driver;
-    private final String expectedCity;
-    private final String realCity;
+    private String city;
 
-    public CityTest(String expectedCity, String realCity) {
-        this.realCity = realCity;
-        this.expectedCity = expectedCity;
+    public CityTest(String city) {
+        this.city = city;
     }
 
     @Parameterized.Parameters
     public static Collection<Object[]> getParameters() {
         Object[][] parameters = new Object[][]{
-                {"Анапа", "Анапа"},
-                {"Екатеринбург", "Екатеринбург"},
-                {"Волгоград", "Волгоград"},
-                {"Сочи", "Сочи"},
-                {"Краснодар", "Краснодар"}
+                {"Анапа"},
+                {"Екатеринбург"}
         };
         return Arrays.asList(parameters);
     }
@@ -49,36 +46,28 @@ public class CityTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.citilink.ru/");
+        try {
+            mainPage.goToOldPage();
+        }
+        catch (Exception exception) {
+        }
     }
 
+    @Epic("Тестирование сайта https://www.citilink.ru/")
+    @Story(value = "Тест проверки изменения города при авторизации")
     @Test
     public void cityTest() throws InterruptedException {
-        mainPage.setCity("Уфа");
-        Thread.sleep(2000);
-        Assert.assertEquals("Уфа", mainPage.getCity());
+        mainPage.setCity(city);
+        Assert.assertEquals(city, mainPage.getCity());
         mainPage.showForm();
         mainPage.inputLogin(("dima251200@yandex.ru"));
         mainPage.inputPassword("dimas123");
         Thread.sleep(10000);
         mainPage.clickLoginBtn();
-        Thread.sleep(1000);
         mainPage.clickMyOfficeBtn();
-        Thread.sleep(1000);
         Assert.assertEquals(mainPage.getCity(), profilePage.getDeliveryCity());
-        userLogout();
-    }
-
-    @Test
-    public void changeCityTest() throws InterruptedException {
-        mainPage.setCity(realCity);
-        Thread.sleep(2000);
-        Assert.assertEquals(expectedCity, mainPage.getCity());
-    }
-
-    public static void userLogout() throws InterruptedException {
         mainPage.clickToMainPage();
         mainPage.userLogout();
-        Thread.sleep(10000);
     }
 
     @AfterClass

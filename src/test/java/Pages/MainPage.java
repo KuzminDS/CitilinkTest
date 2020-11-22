@@ -46,17 +46,18 @@ public class MainPage {
     }
 
     public void clickLoginBtn() {
-        submitBtn.click();
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOf(submitBtn)).click();
     }
 
     public String getUserName() {
-        WebElement userForm = driver.findElement(By.className("auth-user-popup__text"));
-        String userName = userForm.getText();
-        return userName;
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("auth-user-popup__text"))).getText();
     }
 
     public void clickMyOfficeBtn() {
-        WebElement userForm = driver.findElement(By.className("auth-user-popup__text"));
+        WebElement userForm = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("auth-user-popup__text")));
         userForm.click();
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), \"Мой кабинет\")]"))).click();
@@ -70,7 +71,8 @@ public class MainPage {
     }
 
     public String getCity() {
-        return cityBtn.getText();
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOf(cityBtn)).getText();
     }
 
     public void setCity(String newCity) {
@@ -88,5 +90,15 @@ public class MainPage {
     public void clickToMainPage() {
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("screen"))).click();
+    }
+
+    public String getCartText() {
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("basket-storage__cart"))).getText();
+    }
+
+    public void goToOldPage() {
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), \"Перейти на старую версию сайта\")]"))).click();
     }
 }

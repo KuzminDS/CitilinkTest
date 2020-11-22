@@ -31,11 +31,12 @@ public class CatalogPage {
         inputElement.sendKeys(minPrice.toString());
     }
 
-    public void setMaxPrice(Integer maxPrice) {
+    public void setMaxPrice(Integer maxPrice) throws InterruptedException {
         WebElement inputElement = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("max")));
         inputElement.sendKeys("\b\b\b\b\b\b\b\b");
         inputElement.sendKeys(maxPrice.toString());
+        Thread.sleep(2000);
     }
 
     public List<WebElement> getProductList() {
@@ -53,5 +54,10 @@ public class CatalogPage {
     public void clickOnCart() {
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("cart"))).click();
+    }
+
+    public String getCartText() {
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.id("basket_storage"))).getText();
     }
 }

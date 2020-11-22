@@ -1,12 +1,16 @@
 package FirstTest;
 
 import Pages.MainPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,8 +26,15 @@ public class LoginTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.citilink.ru/");
+        try {
+            mainPage.goToOldPage();
+        }
+        catch (Exception exception) {
+        }
     }
 
+    @Epic("Тестирование сайта https://www.citilink.ru/")
+    @Story(value = "Тест авторизации пользователя")
     @Test
     public void loginTest() throws InterruptedException {
         mainPage.showForm();
@@ -31,16 +42,10 @@ public class LoginTest {
         mainPage.inputPassword("dimas123");
         Thread.sleep(10000);
         mainPage.clickLoginBtn();
-        Thread.sleep(1000);
         String user = mainPage.getUserName();
         Assert.assertEquals("Дмитрий", user);
-        userLogout();
-    }
-
-    public static void userLogout() throws InterruptedException {
         mainPage.clickToMainPage();
         mainPage.userLogout();
-        Thread.sleep(10000);
     }
 
     @AfterClass
