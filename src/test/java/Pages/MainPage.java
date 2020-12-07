@@ -50,22 +50,25 @@ public class MainPage {
                 .until(ExpectedConditions.visibilityOf(submitBtn)).click();
     }
 
+    @FindBy(className = "auth-user-popup__text")
+    private WebElement authUserPopup;
+
     public String getUserName() {
         return (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("auth-user-popup__text"))).getText();
     }
 
     public void clickMyOfficeBtn() {
-        WebElement userForm = (new WebDriverWait(driver, 10))
+        (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("auth-user-popup__text")));
-        userForm.click();
+        authUserPopup.click();
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), \"Мой кабинет\")]"))).click();
     }
 
+
     public void userLogout() {
-        WebElement userForm = driver.findElement(By.className("auth-user-popup__text"));
-        userForm.click();
+        authUserPopup.click();
         WebElement logoutBtn = driver.findElement(By.xpath("//*[contains(text(), \"Выйти\")]"));
         logoutBtn.click();
     }
@@ -82,14 +85,22 @@ public class MainPage {
         city.click();
     }
 
+    @FindBy(className = "menu-item_cat_beauty")
+    private WebElement beautyAndHealthCatalog;
+
     public void clickOnBeautyAndHealthCatalog() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.className("menu-item_cat_beauty"))).click();
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("menu-item_cat_beauty")));
+        beautyAndHealthCatalog.click();
     }
+
+    @FindBy(className = "screen")
+    private WebElement screen;
 
     public void clickToMainPage() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.className("screen"))).click();
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("screen")));
+        screen.click();
     }
 
     public String getCartText() {
@@ -97,8 +108,12 @@ public class MainPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("basket-storage__cart"))).getText();
     }
 
+    @FindBy(xpath = "//*[contains(text(), \"Перейти на старую версию сайта\")]")
+    private WebElement goToOldPageBtn;
+
     public void goToOldPage() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), \"Перейти на старую версию сайта\")]"))).click();
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), \"Перейти на старую версию сайта\")]")));
+        goToOldPageBtn.click();
     }
 }

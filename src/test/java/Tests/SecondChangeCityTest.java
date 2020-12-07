@@ -1,13 +1,12 @@
-package SecondTest;
+package Tests;
 
+import Common.CitilinkTestWatcher;
+import Common.TestSettings;
 import Pages.ProfilePage;
 import Pages.MainPage;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
@@ -18,13 +17,13 @@ import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(Parameterized.class)
-public class CityTest {
+public class SecondChangeCityTest {
     public static MainPage mainPage;
     public static ProfilePage profilePage;
     public static WebDriver driver;
     private String city;
 
-    public CityTest(String city) {
+    public SecondChangeCityTest(String city) {
         this.city = city;
     }
 
@@ -39,7 +38,7 @@ public class CityTest {
 
     @BeforeClass
     public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", TestSettings.webDriverPath);
         driver = new ChromeDriver();
         mainPage = new MainPage(driver);
         profilePage = new ProfilePage(driver);
@@ -53,15 +52,17 @@ public class CityTest {
         }
     }
 
+    @Rule
+    public CitilinkTestWatcher watcher = new CitilinkTestWatcher(driver);
     @Epic("Тестирование сайта https://www.citilink.ru/")
     @Story(value = "Тест проверки изменения города при авторизации")
     @Test
-    public void cityTest() throws InterruptedException {
+    public void changeCityTest() throws InterruptedException {
         mainPage.setCity(city);
         Assert.assertEquals(city, mainPage.getCity());
         mainPage.showForm();
-        mainPage.inputLogin(("dima251200@yandex.ru"));
-        mainPage.inputPassword("dimas123");
+        mainPage.inputLogin((TestSettings.login));
+        mainPage.inputPassword(TestSettings.password);
         Thread.sleep(10000);
         mainPage.clickLoginBtn();
         mainPage.clickMyOfficeBtn();

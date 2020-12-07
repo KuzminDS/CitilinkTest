@@ -11,11 +11,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ProfilePage {
     public WebDriver driver;
     public ProfilePage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
+    @FindBy(className = "delivery_address")
+    private WebElement deliveryAddress;
+
     public String getDeliveryCity() {
-        WebElement deliveryAddress = (new WebDriverWait(driver, 10))
+        (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("delivery_address")));
         return deliveryAddress.getText().split(",")[0];
     }
